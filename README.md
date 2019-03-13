@@ -2,7 +2,7 @@
 
 - https://console.cloud.google.com/apis/
 
-# apis/youtube.js に記載
+## apis/youtube.js に記載
 
 - セキュリティ上の問題で一旦 igunore
 
@@ -24,3 +24,7 @@ export default axios.create({
 });
 
 ```
+
+## 完成図
+
+![完成図](./img/1.gif)
