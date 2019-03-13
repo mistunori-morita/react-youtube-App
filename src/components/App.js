@@ -9,6 +9,12 @@ export default class App extends Component {
     videos: [],
     selectedVideo: null
   };
+
+  // 最初のレンダリング時に、すでにonTermSubmitを実行して、レンダリングした状態にするつまりデフォルトの表示をcomponentDidMountで行う
+  componentDidMount() {
+    this.onTermSubmit("cat");
+  }
+
   onTermSubmit = async term => {
     const response = await youtube.get("/search", {
       params: {
@@ -16,7 +22,9 @@ export default class App extends Component {
       }
     });
     this.setState({
-      videos: response.data.items
+      videos: response.data.items,
+      // responseで帰ってきた最初の配列のitemsをセットしてvideoDetailにレンダリング
+      selectedVideo: response.data.items[0]
     });
   };
 
@@ -28,7 +36,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="ui container">
+      <div className="ui container" style={{ marginTop: "20px" }}>
         <SearchBar onFormSubmit={this.onTermSubmit} />
         <div className="ui grid">
           <div className="ui row">
