@@ -3,9 +3,12 @@ import "./VideoItem.css";
 
 const VideoItem = ({ video, onVideoSelect }) => {
   return (
-    // Appコンポーネントから子供まで辿って発火したイベントをコールバックで親に戻す
     <div onClick={() => onVideoSelect(video)} className="video-item item">
-      <img className="ui image" src={video.snippet.thumbnails.medium.url} />
+      <img
+        className="ui image"
+        src={video.snippet.thumbnails.medium.url}
+        alt={video.snippet.title}
+      />
       <div className="content">
         <div className="header">{video.snippet.title}</div>
       </div>
