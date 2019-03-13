@@ -3,11 +3,17 @@ import SearchBar from "./SearchBar";
 import youtube from "../apis/youtube";
 
 export default class App extends Component {
-  onTermSubmit = term => {
-    youtube.get("/search", {
+  state = {
+    videos: []
+  };
+  onTermSubmit = async term => {
+    const response = await youtube.get("/search", {
       params: {
         q: term
       }
+    });
+    this.setState({
+      videos: response.data.items
     });
   };
 
@@ -15,7 +21,8 @@ export default class App extends Component {
     return (
       <div className="ui container">
         APP
-        <SearchBar onFormSubmit={this.onTermSubmit} />
+        <SearchBar onFormSubmit={this.onTermSubmit} />i have{" "}
+        {this.state.videos.length} viedos.
       </div>
     );
   }
