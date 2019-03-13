@@ -15,7 +15,7 @@ export default class SearchBar extends Component {
     e.preventDefault();
 
     // todo:make suer we call
-
+    this.props.onFormSubmit(this.state.term);
     //callback from parent compnent
   };
 
