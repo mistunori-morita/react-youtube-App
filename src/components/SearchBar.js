@@ -11,10 +11,18 @@ export default class SearchBar extends Component {
     });
   };
 
+  onFormSubmit = e => {
+    e.preventDefault();
+
+    // todo:make suer we call
+
+    //callback from parent compnent
+  };
+
   render() {
     return (
       <div className="search-bar ui segment">
-        <form className="ui form">
+        <form className="ui form" onSubmit={this.onFormSubmit}>
           <div className="field">
             <label>Viedo Search</label>
             <input
