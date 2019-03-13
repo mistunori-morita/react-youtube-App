@@ -22,7 +22,7 @@ export default class App extends Component {
     return (
       <div className="ui container">
         APP
-        <SearchBar onFormSubmit={this.onTermSubmit} />i have{" "}
+        <SearchBar onFormSubmit={this.onTermSubmit} />
         <VideoList videos={this.state.videos} />
       </div>
     );
