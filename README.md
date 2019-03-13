@@ -15,7 +15,7 @@ import axios from "axios";
 const KEY = "xxxx";
 
 export default axios.create({
-  baseURL: "https://www.googleapis.com/youtube/v3/search",
+  baseURL: "https://www.googleapis.com/youtube/v3",
   params: {
     part: "snippet",
     maxResults: 5,
